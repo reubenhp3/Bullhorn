@@ -1,6 +1,7 @@
 package customTools;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 //import model.Bhpost;
+
+import model.Bhpost;
 
 public class DbBullhorn {
 
@@ -60,13 +63,13 @@ pstmt = con.prepareStatement(sql);
 rs = pstmt.executeQuery();
 // Fetch each row from the result set
 while (rs.next()) {
-long postid = rs.getInt("postid");
+int postid = rs.getInt("postid");
 java.util.Date postdate = rs.getDate("postdate");
 String posttext = rs.getString("posttext");
 long userid = rs.getLong("bhuserid");
 
 Bhpost p = new Bhpost();
-p.setPostid(postid);
+p.setPostdate(postid);
 p.setPostdate(convertJavaDateToSqlDate(postdate));
 p.setPosttext(posttext);
 p.setBhuserid(userid);

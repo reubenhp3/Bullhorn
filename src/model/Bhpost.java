@@ -9,7 +9,7 @@ public class Bhpost {
 		
 	}
 
-	public void setPostdate(Date postdate) {
+	public void setPostdate(int postid) {
 		// TODO Auto-generated method stub
 		
 	}
