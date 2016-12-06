@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
+<jsp:include page="bootstrap.jsp"></jsp:include></head>
 <body>
 
 <form action="Login" method="get">
 
-<h1>enter your email</h1><input type="text" name="'email" id="email"></input></br>
+<h1>enter your email</h1><input type="text" name="email" id="email"></input></br>
 
-<h1>enter your password</h1> <input type="text" name="'password" id="password"></input>
+<h1>enter your password</h1> <input type="text" name="password" id="password"></input>
 
 <input type="submit">
 
