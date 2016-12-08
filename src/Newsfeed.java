@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Bhpost;
-import customTools.DbBullhorn;
+import model.BhPost;
+import customTools.DbPost;
 
 @WebServlet("/Newsfeed")
 public class Newsfeed extends HttpServlet {
@@ -50,16 +50,16 @@ public class Newsfeed extends HttpServlet {
 		}
 		
 		//get posts based on parameters; if no parameters then get all posts
-		List<Bhpost> posts = null;
+		List<BhPost> posts = null;
 		if (request.getParameter("userid")!=null){
 			filterByUserID = Integer.parseInt(request.getParameter("userid"));
-			posts = DbBullhorn.postsofUser(filterByUserID);
+			posts = DbPost.postsofUser(filterByUserID);
 		}else if (request.getParameter("searchtext")!=null){
 			searchtext = request.getParameter("searchtext").toString();
-			posts = DbBullhorn.searchPosts(searchtext);
+			posts = DbPost.searchPosts(searchtext);
 		}else{
 			try {
-				posts = DbBullhorn.AllPosts();
+				posts = DbPost.AllPosts();
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

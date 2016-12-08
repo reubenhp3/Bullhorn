@@ -1,22 +1,38 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 public class BhPost implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	private long postid;
+	private Date postdate;
+	private String posttext;
 	private long bhuserid;
-	private Date joindate;
-	private String motto;
-	private String useremail;
-	private String username;
-	private String userpassword;
-	//private List<Bhpost> bhposts;
 
-	public BhPost() {
+	public long getPostid() {
+		return this.postid;
+	}
+
+	public void setPostid(long postid) {
+		this.postid = postid;
+	}
+
+	public Date getPostdate() {
+		return this.postdate;
+	}
+
+	public void setPostdate(Date postdate) {
+		this.postdate = postdate;
+	}
+
+	public String getPosttext() {
+		return this.posttext;
+	}
+
+	public void setPosttext(String posttext) {
+		this.posttext = posttext;
 	}
 
 	public long getBhuserid() {
@@ -27,55 +43,4 @@ public class BhPost implements Serializable {
 		this.bhuserid = bhuserid;
 	}
 
-	public Date getJoindate() {
-		return this.joindate;
-	}
-
-	public void setJoindate(Date joindate) {
-		this.joindate = joindate;
-	}
-
-	public String getMotto() {
-		return this.motto;
-	}
-
-	public void setMotto(String motto) {
-		this.motto = motto;
-	}
-
-	public String getUseremail() {
-		return this.useremail;
-	}
-
-	public void setUseremail(String useremail) {
-		this.useremail = useremail;
-	}
-
-	public String getUsername() {
-		return this.username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getUserpassword() {
-		return this.userpassword;
-	}
-
-	public void setUserpassword(String userpassword) {
-		this.userpassword = userpassword;
-	}
-
-	/*public List<Bhpost> getBhposts() {
-		return this.bhposts;
-	}
-
-	public void setBhposts(List<Bhpost> bhposts) {
-		this.bhposts = bhposts;
-	
-	}*/
-
-
 }
-

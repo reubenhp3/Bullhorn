@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import customTools.DbBullhorn;
-import model.Bhpost;
+import customTools.DbPost;
+import model.BhPost;
 import model.Bhuser;
 
 /**
@@ -35,7 +35,7 @@ public class Post extends HttpServlet {
     	
 		//java.sql.Date postdate = new java.sql.Date(d.getTime());
 		
-    	java.sql.Date postdate = DbBullhorn.convertJavaDateToSqlDate(today);
+    	java.sql.Date postdate = DbPost.convertJavaDateToSqlDate(today);
 		
 		
 		String posttext = request.getParameter("posttext");
@@ -60,12 +60,12 @@ public class Post extends HttpServlet {
 		//We don't have to create a new post here - we could simply pass the values as function parameters
 		//But I want to let you make that modification. Get it working like this first.
 		//The you should modify the DbBullhorn.insert method to take one parameter which is a BhPost object.
-		Bhpost bhPost = new Bhpost();
+		BhPost bhPost = new BhPost();
 		bhPost.setBhuserid(bhuser.getBhuserid());
 		bhPost.setPostdate(postdate);
 		bhPost.setPosttext(posttext);
 		
-		int result = DbBullhorn.insert(bhPost.getPostdate(),bhPost.getPosttext(),bhPost.getBhuserid());
+		int result = DbPost.insert(bhPost.getPostdate(),bhPost.getPosttext(),bhPost.getBhuserid());
 		if (result > 0){
 			//the nextURL needs to go to another servlet, this time the newsfeed servlet
 			//this is because the newsfeed servlet contains the code to display all the posts
